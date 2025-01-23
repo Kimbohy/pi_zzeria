@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Linking} from 'react-native';
 
 export default function LoginPage() {
   return (
@@ -22,34 +22,30 @@ export default function LoginPage() {
         </View>
 
         {/* Titre */}
-        <Text style={styles.title}>Créer votre compte</Text>
+        <Text style={styles.title}>Bienvenue à Pizza</Text>
 
         {/* Champs de formulaire */}
         <TextInput
-          placeholder="Nom d'utilisateur"
-          placeholderTextColor="#999"
-          style={styles.input}
-        />
-        <TextInput
           placeholder="E-mail ou numéro"
-          placeholderTextColor="#999"
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Adresse"
-          placeholderTextColor="#999"
           style={styles.input}
         />
         <TextInput
           placeholder="Mot de passe"
-          placeholderTextColor="#999"
           secureTextEntry
           style={styles.input}
         />
 
+        {/* Lien Mot de passe oublié */}
+        <Text
+          style={styles.forgotPassword}
+          onPress={() => Linking.openURL('#')} // Lien à personnaliser
+        >
+          Mot de passe oublié ?
+        </Text>
+
         {/* Bouton Enregistrer */}
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Enregistrer</Text>
+          <Text style={styles.buttonText}>Continue</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -59,24 +55,30 @@ export default function LoginPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Remplit tout l'écran
+  
   },
   backgroundImage: {
     position: 'absolute',
     width: '100%',
     height: '100%',
+    borderRadius: 25,// Coins arrondis
+  
   },
   content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 50, // Ajuste l'espacement vertical
-    backgroundColor: 'rgba(184, 74, 74, 0.5)', // Fond semi-transparent
+    paddingHorizontal:50,
+    paddingTop: 15,
+    backgroundColor: 'rgba(255, 255, 255, 0.58)', // Fond semi-transparent
     width: '90%',
-    marginHorizontal: '5%', // Centre le contenu
-    height: '80%',
-    borderRadius: 20, // Coins arrond
+    marginHorizontal: '5%',
+    borderRadius: 40,
+    marginVertical: '25%',
+    marginTop:'20%',
+  
   },
+
   logoContainer: {
     width: 150, // Largeur du cercle
     height: 150, // Hauteur du cercle
@@ -85,7 +87,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 15, // Espacement avec le titre
+  
   },
+
   logo: {
     flex: 1, // Remplit le conteneur
     justifyContent: 'center',
@@ -93,33 +97,37 @@ const styles = StyleSheet.create({
     width: 230, // Taille du logo
     height: 230, // Taille du logo
   },
+
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
     marginBottom: 30,
   },
+
   input: {
     width: '100%',
     height: 50,
     borderBottomWidth: 1, // Ligne fine en bas
-    borderBottomColor: '#fff',
     marginBottom: 20,
-    fontSize: 16,
-    color: '#fff',
+    fontSize: 12,
+    
   },
+  forgotPassword: {
+    marginLeft: 100,
+  },
+
   button: {
     backgroundColor: 'red',
     width: '100%',
-    height: 50,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 25,
-    marginTop: 20,
+    borderRadius: 10,
+    margin:20,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 12,
     fontWeight: 'bold',
   },
 });
