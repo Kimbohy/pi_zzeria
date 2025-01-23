@@ -20,25 +20,11 @@ export default function LoginPage() {
           style={{ width: 150, height: 150, backgroundColor: 'rgba(255, 255, 255, 0.8)',borderRadius: 125 }}  
         />
         {/* Titre */}
-        <Text style={styles.title}>Créer votre compte</Text>
-        
-        {/* Champ Nom */}
-        <TextInput
-          placeholder="Nom"
-          placeholderTextColor="#999"
-          style={styles.input}
-        />
+        <Text style={styles.title}>Bienvenue à Pizza</Text>
 
         {/* Champ E-mail */}
         <TextInput
           placeholder="E-mail ou numéro"
-          placeholderTextColor="#999"
-          style={styles.input}
-        />
-
-        {/* address */}
-        <TextInput
-          placeholder="addresse"
           placeholderTextColor="#999"
           style={styles.input}
         />
@@ -51,9 +37,17 @@ export default function LoginPage() {
           style={styles.input}
         />
 
+        {/* Lien Mot de passe oublié */}
+        <Text
+          style={styles.forgotPassword}
+          onPress={() => Linking.openURL('#')} // Lien à personnaliser
+        >
+          Mot de passe oublié ?
+        </Text>
+
         {/* Bouton Continuer */}
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Enregistrer</Text>
+          <Text style={styles.buttonText}>Continuer</Text>
         </TouchableOpacity>
       </View>
     </View>
