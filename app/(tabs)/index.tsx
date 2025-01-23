@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import { useState } from "react";
 import CategoryBut from "@/components/home/CategoryBut";
 import SearchBar from "@/components/home/SearchBar";
+import PizzaSection from "@/components/home/PizzaSection";
 
 const Index = () => {
   const [search, setSearch] = useState("");
@@ -9,6 +10,7 @@ const Index = () => {
     <View style={styles.container}>
       <SearchBar />
       <CategoryBut />
+      <PizzaSection />
     </View>
   );
 };

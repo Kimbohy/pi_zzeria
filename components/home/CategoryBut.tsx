@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { Text } from "react-native";
-import { act, useState } from "react";
+import { useState } from "react";
 
 const CategoryBut = () => {
   const categories = ["Suggestions", "Meilleurs ventes", "Tous les pizzas"];
@@ -29,7 +29,6 @@ const CategoryBut = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: "100%",
     overflow: "scroll",
   },
