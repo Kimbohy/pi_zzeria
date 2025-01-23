@@ -54,7 +54,9 @@ const PizzaCard: React.FC<{ pizza: PizzaProps }> = ({ pizza }) => {
             <Text style={styles.quantityText}>{quantity}</Text>
             <TouchableOpacity
               style={styles.quantityButton}
-              onPress={() => setQuantity(quantity + 1)}
+              onPress={() => {
+                if (quantity < pizza.available) setQuantity(quantity + 1);
+              }}
             >
               <Feather name="plus" size={24} color="#E52E2E" />
             </TouchableOpacity>
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   pizzaName: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: "bold",
     marginBottom: 5,
     color: "#282828",
@@ -111,9 +113,10 @@ const styles = StyleSheet.create({
   ingredient: {
     color: "#777",
     marginBottom: 10,
+    fontSize: 18,
   },
   tailleLabel: {
-    fontSize: 14,
+    fontSize: 17,
     fontWeight: "bold",
     marginTop: 5,
     color: "#282828",
@@ -130,6 +133,7 @@ const styles = StyleSheet.create({
     height: 40,
     paddingHorizontal: 10,
     borderWidth: 0,
+    fontSize: 20,
     backgroundColor: "transparent",
     outlineColor: "transparent",
   },
@@ -140,7 +144,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   priceText: {
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: "bold",
     color: "#282828",
   },
@@ -153,19 +157,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   quantityText: {
-    fontSize: 18,
+    fontSize: 22,
     marginHorizontal: 10,
-  },
-  addButton: {
-    backgroundColor: "#E52E2E",
-    paddingVertical: 12,
-    borderRadius: 8,
-  },
-  addButtonText: {
-    color: "#fff",
-    textAlign: "center",
-    fontSize: 16,
-    fontWeight: "bold",
   },
   locationContainer: {
     flexDirection: "row",
@@ -176,6 +169,17 @@ const styles = StyleSheet.create({
     color: "#B7B7B7",
     fontSize: 12,
     marginLeft: 5,
+  },
+  addButton: {
+    backgroundColor: "#E52E2E",
+    paddingVertical: 12,
+    borderRadius: 12,
+  },
+  addButtonText: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 22,
+    fontWeight: "bold",
   },
 });
 
