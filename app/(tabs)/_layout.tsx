@@ -1,46 +1,67 @@
 import { Tabs } from 'expo-router';
+import { Image } from 'react-native';
 
-import CartIconR from '../../assets/icons/panierR.svg';
-import CartIconB from '../../assets/icons/panierB.svg';
-import HomeIconR from '../../assets/icons/homeR.svg';
-import HomeIconB from '../../assets/icons/homeB.svg';
-import UserIconR from '../../assets/icons/userR.svg';
-import UserIconB from '../../assets/icons/userB.svg';
-import HistoryIconB from '../../assets/icons/historyB.svg';
-import HistoryIconR from "../../assets/icons/historyR.svg";
 
 export default () => {
     return (
-        <Tabs>
+        <Tabs initialRouteName="home">
             <Tabs.Screen 
                 name="home" 
                 options={{
-                    tabBarIcon: ({ color, size }) => (
-                        <HomeIconB width={size} height={size} fill={color} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Image 
+                            width={size} 
+                            height={size} 
+                            source={focused 
+                                ? require('../../assets/icons/homeR.svg')
+                                : require('../../assets/icons/homeB.svg')
+                            }
+                            />
                     ),
                 }}
             />
             <Tabs.Screen 
                 name="panier"
                 options={{
-                    tabBarIcon: ({ color, size }) => (
-                        <CartIconR width={size} height={size} fill={color} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Image 
+                            width={size} 
+                            height={size} 
+                            source={focused 
+                                ? require('../../assets/icons/panierR.svg')
+                                : require('../../assets/icons/panierB.svg')
+                            }
+                            />
                     ),
                 }}
             />
             <Tabs.Screen 
                 name="historique" 
                 options={{
-                    tabBarIcon: ({ color, size }) => (
-                        <HistoryIconB width={size} height={size} fill={color} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Image 
+                            width={size} 
+                            height={size} 
+                            source={focused 
+                                ? require('../../assets/icons/historyR.svg')
+                                : require('../../assets/icons/historyB.svg')
+                            }
+                            />
                     ),
                 }}
             />
             <Tabs.Screen 
                 name="profile"
                 options={{
-                    tabBarIcon: ({ color, size }) => (
-                        <UserIconB width={size} height={size} fill={color} />
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Image 
+                            width={size} 
+                            height={size} 
+                            source={focused 
+                                ? require('../../assets/icons/userB.svg')
+                                : require('../../assets/icons/homeB.svg')
+                            }
+                            />
                     ),
                 }}
             />
