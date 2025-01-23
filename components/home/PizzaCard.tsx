@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity, Dimensions, useWindowDimensions } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { Text } from "react-native";
@@ -18,10 +18,15 @@ interface PizzaProps {
 }
 
 const PizzaCard: React.FC<{ pizza: PizzaProps }> = ({ pizza }) => {
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 400;
+  const containerWidth = isSmallScreen ? width - 40 : 350;
+  const containerHeight = isSmallScreen ? Math.max(600, width * 1.2) : 600;
+
   const [selectedSize, setSelectedSize] = useState(pizza.sizes[0]);
   const [quantity, setQuantity] = useState(1);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width: containerWidth, height: containerHeight }]}>
       <Image source={pizza.image} style={styles.image} />
       <View style={styles.detailsContainer}>
         <Text style={styles.pizzaName}>{pizza.name}</Text>
@@ -78,8 +83,8 @@ const PizzaCard: React.FC<{ pizza: PizzaProps }> = ({ pizza }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "80%",
-    height: 550,
+    // width: 350,
+    // height: 550,
     backgroundColor: "#fff",
     borderRadius: 15,
     overflow: "hidden",

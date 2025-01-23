@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import { Text } from "react-native";
 import { useState } from "react";
 
@@ -7,7 +7,11 @@ const CategoryBut = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   return (
     <View style={styles.container}>
-      <View style={styles.horizontalScroll}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.horizontalScroll}
+      >
         {categories.map((category) => (
           <View key={category}>
             <Text
@@ -22,7 +26,7 @@ const CategoryBut = () => {
             </Text>
           </View>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -30,13 +34,9 @@ const CategoryBut = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    overflow: "scroll",
   },
   horizontalScroll: {
-    flexDirection: "row",
-    marginLeft: 20,
     marginTop: 15,
-    gap: 30,
     flexWrap: "nowrap",
   },
   button: {
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 2,
     color: "#E52E2E",
+    marginHorizontal: 15,
   },
   active: {
     backgroundColor: "#E52E2E",

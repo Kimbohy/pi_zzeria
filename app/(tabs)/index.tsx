@@ -3,14 +3,17 @@ import { useState } from "react";
 import CategoryBut from "@/components/home/CategoryBut";
 import SearchBar from "@/components/home/SearchBar";
 import PizzaSection from "@/components/home/PizzaSection";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Index = () => {
   const [search, setSearch] = useState("");
   return (
     <View style={styles.container}>
-      <SearchBar />
-      <CategoryBut />
-      <PizzaSection />
+      <ScrollView showsHorizontalScrollIndicator={false}>
+        <SearchBar />
+        <CategoryBut />
+        <PizzaSection />
+      </ScrollView>
     </View>
   );
 };
