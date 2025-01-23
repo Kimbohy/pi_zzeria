@@ -84,7 +84,7 @@ export default function PurchaseHistoryScreen() {
           <Text style={styles.backArrow}>{'<'}</Text>
         </TouchableOpacity> */}
          <Image
-          source={require('@/assets/images/retour.svg')} 
+          source={require('@/assets/images/back.svg')} 
           style={styles.BackButton}
         />
         <Text style={styles.headerTitle}>Historiques d'achats</Text>
@@ -117,25 +117,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   BackButton: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
     resizeMode: 'contain',
     marginRight: 12, // Ajout d'espacement entre le bouton et le titre
   },
   header: {
-    marginTop:30,
+    marginTop: 30,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
     borderBottomColor: '#E0E0E0',
+    justifyContent: 'space-between', // Ensures proper spacing
   },
   headerTitle: {
+    flex: 1, // Allows the title to take up available space
     fontSize: 18,
     fontWeight: '600',
     color: '#333333',
+    textAlign: 'center', // Centers the text within its allocated space
   },
+  
   content: {
     flex: 1,
     justifyContent: 'center',
