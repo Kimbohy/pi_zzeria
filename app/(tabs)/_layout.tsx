@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Tabs } from 'expo-router';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Dimensions } from 'react-native';
+
 
 const STORAGE_KEY = 'lastActiveTab';
 
@@ -106,20 +108,24 @@ export default () => {
     );
 };
 
+
+const { width } = Dimensions.get('window');
+const isTablet = width >= 768;
+
 const styles = StyleSheet.create({
     header: {
-        height: 60,
+        height: isTablet ? 80 : 60,
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#f8f8f8',
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
         flexDirection: 'row',
-        paddingHorizontal: 10,
+        paddingHorizontal: isTablet ? 20 : 10,
     },
     tabBar: {
         backgroundColor: '#fff',
-        height: 45, // Adjusted height
+        height: isTablet ? 60 : 45, // Adjusted height
         borderTopWidth: 1,
         borderTopColor: '#ddd',
         shadowColor: '#000',
@@ -129,15 +135,15 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     tabIcon: {
-        width: 24,
-        height: 24,
+        width: isTablet ? 30 : 24,
+        height: isTablet ? 30 : 24,
     },
     tabIconActive: {
         tintColor: '#FF0000',
     },
     icon: {
-        width: 30,
-        height: 30, // Adjusted height
+        width: isTablet ? 40 : 30,
+        height: isTablet ? 40 : 30, // Adjusted height
         paddingTop: 5,
     },
 });
