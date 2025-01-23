@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Tabs } from 'expo-router';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SvgXml } from 'react-native-svg';
 
 const STORAGE_KEY = 'lastActiveTab';
 
 const HomeHeader = () => (
     <View style={styles.header}>
-        <Image source={require('../../assets/icons/pizza_logo.svg')} width={30} height={30} />
-        <Image source={require('../../assets/icons/menu.svg')} width={30} height={30} />
+        <Image source={require('../../assets/icons/pizza_logo.svg')} style={styles.icon} />
+        <Image source={require('../../assets/icons/menu.svg')} style={styles.icon} />
     </View>
 );
 
@@ -30,74 +29,77 @@ export default () => {
     };
 
     return (
-        <Tabs initialRouteName={initialTab}>
+        <Tabs
+            initialRouteName={initialTab}
+            screenOptions={{
+                tabBarStyle: styles.tabBar,
+                tabBarActiveTintColor: '#FF0000',
+                tabBarInactiveTintColor: '#000',
+                tabBarShowLabel: false,
+            }}
+        >
             <Tabs.Screen
                 name="home"
                 options={{
                     header: HomeHeader,
-                    tabBarIcon: ({ color, size, focused }) => (
+                    tabBarIcon: ({ focused }) => (
                         <Image
-                            width={size}
-                            height={size}
                             source={
                                 focused
                                     ? require('../../assets/icons/homeR.svg')
                                     : require('../../assets/icons/homeB.svg')
                             }
+                            style={[styles.tabIcon, focused && styles.tabIconActive]}
                         />
                     ),
-                    tabBarLabel: () => null,
                 }}
             />
             <Tabs.Screen
                 name="panier"
                 options={{
-                    tabBarIcon: ({ color, size, focused }) => (
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => (
                         <Image
-                            width={size}
-                            height={size}
                             source={
                                 focused
                                     ? require('../../assets/icons/panierR.svg')
                                     : require('../../assets/icons/panierB.svg')
                             }
+                            style={[styles.tabIcon, focused && styles.tabIconActive]}
                         />
                     ),
-                    tabBarLabel: () => null,
                 }}
             />
             <Tabs.Screen
                 name="history"
                 options={{
-                    tabBarIcon: ({ color, size, focused }) => (
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => (
                         <Image
-                            width={size}
-                            height={size}
                             source={
                                 focused
                                     ? require('../../assets/icons/historyR.svg')
                                     : require('../../assets/icons/historyB.svg')
                             }
+                            style={[styles.tabIcon, focused && styles.tabIconActive]}
                         />
                     ),
-                    tabBarLabel: () => null,
                 }}
             />
             <Tabs.Screen
                 name="profile"
                 options={{
-                    tabBarIcon: ({ color, size, focused }) => (
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => (
                         <Image
-                            width={size}
-                            height={size}
                             source={
                                 focused
-                                    ? require('../../assets/icons/homeR.svg')
+                                    ? require('../../assets/icons/userB.svg')
                                     : require('../../assets/icons/userB.svg')
                             }
+                            style={[styles.tabIcon, focused && styles.tabIconActive]}
                         />
                     ),
-                    tabBarLabel: () => null,
                 }}
             />
         </Tabs>
@@ -115,8 +117,27 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 10,
     },
-    headerText: {
-        fontSize: 20,
-        fontWeight: 'bold',
+    tabBar: {
+        backgroundColor: '#fff',
+        height: 45, // Adjusted height
+        borderTopWidth: 1,
+        borderTopColor: '#ddd',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: -2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+        elevation: 5,
+    },
+    tabIcon: {
+        width: 24,
+        height: 24,
+    },
+    tabIconActive: {
+        tintColor: '#FF0000',
+    },
+    icon: {
+        width: 30,
+        height: 30, // Adjusted height
+        paddingTop: 5,
     },
 });
