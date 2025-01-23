@@ -1,23 +1,26 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TextInput, Image } from "react-native";
 import { useState } from "react";
-import CategoryBut from "@/components/home/CategoryBut";
-import SearchBar from "@/components/home/SearchBar";
 
-const Index = () => {
+const SearchBar = () => {
   const [search, setSearch] = useState("");
   return (
-    <View style={styles.container}>
-      <SearchBar />
-      <CategoryBut />
+    <View style={styles.searchBar}>
+      <Image
+        source={require("../../assets/images/Search.svg")}
+        style={styles.searchIcon}
+      />
+      <TextInput
+        style={styles.searchInput}
+        placeholder="Recherchez votre pizza préferé..."
+        placeholderTextColor="#A9A9A9"
+        value={search}
+        onChangeText={setSearch}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F5F5F8",
-  },
   searchBar: {
     flexDirection: "row",
     alignItems: "center",
@@ -41,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Index;
+export default SearchBar;
