@@ -18,6 +18,7 @@ export default () => {
                             }
                             />
                     ),
+                    tabBarLabel: () => null,
                 }}
             />
             <Tabs.Screen 
@@ -33,6 +34,7 @@ export default () => {
                             }
                             />
                     ),
+                    tabBarLabel: () => null,
                 }}
             />
             <Tabs.Screen 
@@ -48,6 +50,7 @@ export default () => {
                             }
                             />
                     ),
+                    tabBarLabel: () => null,
                 }}
             />
             <Tabs.Screen 
@@ -63,6 +66,7 @@ export default () => {
                             }
                             />
                     ),
+                    tabBarLabel: () => null,
                 }}
             />
         </Tabs>
