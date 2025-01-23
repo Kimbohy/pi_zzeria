@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginLeft: 20,
     marginTop: 15,
-    gap: 50,
+    gap: 30,
     flexWrap: "nowrap",
   },
   button: {
