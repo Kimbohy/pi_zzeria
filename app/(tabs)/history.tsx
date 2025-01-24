@@ -7,7 +7,7 @@ export default function PurchaseHistoryScreen() {
       {/* Header */}
       <View style={styles.header}>
         <Image
-          source={require("@/assets/images/back.svg")}
+          source={require("@/assets/images/back.png")}
           style={styles.BackButton}
         />
         <Text style={styles.headerTitle}>Historiques d'achats</Text>
@@ -16,7 +16,7 @@ export default function PurchaseHistoryScreen() {
       {/* Content */}
       <View style={styles.content}>
         <Image
-          source={require("@/assets/images/calendar.svg")}
+          source={require("@/assets/images/calendar.png")}
           style={styles.historyIcon}
         />
         <Text style={styles.noHistoryText}>Pas d'historique</Text>

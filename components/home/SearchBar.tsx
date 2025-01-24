@@ -6,7 +6,7 @@ const SearchBar = () => {
   return (
     <View style={styles.searchBar}>
       <Image
-        source={require("../../assets/images/Search.svg")}
+        source={require("../../assets/images/Search.png")}
         style={styles.searchIcon}
       />
       <TextInput
