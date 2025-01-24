@@ -27,23 +27,6 @@ const PizzaSection = () => {
       liked: false,
     },
     {
-      id: 2,
-      name: "Pizza quattro formaggi",
-      ingredients: [
-        "Tomate",
-        "Mozzarella",
-        "Gorgonzola",
-        "Parmesan",
-        "Ricotta",
-      ],
-      sizes: ["PM", "GM"],
-      price: 300000,
-      image: require("../../assets/images/Rectangle 3.png"),
-      available: 5,
-      location: "Cheese Heaven",
-      liked: false,
-    },
-    {
       id: 3,
       name: "Pizza hawaiian",
       ingredients: ["Tomate", "Mozzarella", "Ham", "Pineapple"],
