@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Linking} from 'react-native';
 
 export default function LoginPage() {
+  
   return (
     <View style={styles.container}>
       {/* Image de fond */}
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 30,
   },
@@ -111,9 +112,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontSize: 12,
     
+    
   },
   forgotPassword: {
-    marginLeft: 100,
+    position:'absolute',
+    top:'80%',
+    right:20,
+    paddingLeft:20,
   },
 
   button: {

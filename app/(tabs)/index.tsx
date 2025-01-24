@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Linking} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 export default function LoginPage() {
   return (
@@ -22,11 +22,19 @@ export default function LoginPage() {
         </View>
 
         {/* Titre */}
-        <Text style={styles.title}>Bienvenue à Pizza</Text>
+        <Text style={styles.title}>Créer votre compte</Text>
 
         {/* Champs de formulaire */}
         <TextInput
+          placeholder="Nom d'utilisateur"
+          style={styles.input}
+        />
+        <TextInput
           placeholder="E-mail ou numéro"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Adresse"
           style={styles.input}
         />
         <TextInput
@@ -35,17 +43,9 @@ export default function LoginPage() {
           style={styles.input}
         />
 
-        {/* Lien Mot de passe oublié */}
-        <Text
-          style={styles.forgotPassword}
-          onPress={() => Linking.openURL('#')} // Lien à personnaliser
-        >
-          Mot de passe oublié ?
-        </Text>
-
         {/* Bouton Enregistrer */}
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Continue</Text>
+          <Text style={styles.buttonText}>Enregistrer</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -68,15 +68,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal:50,
+    paddingHorizontal: 20,
     paddingTop: 15,
     backgroundColor: 'rgba(255, 255, 255, 0.58)', // Fond semi-transparent
     width: '90%',
     marginHorizontal: '5%',
-    borderRadius: 40,
-    marginVertical: '25%',
-    marginTop:'20%',
-  
+    borderRadius: 20, // Coins arrond
+    marginTop: 50,
+    marginBottom: 20, // Espacement avec le bouton
   },
 
   logoContainer: {
@@ -109,11 +108,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderBottomWidth: 1, // Ligne fine en bas
     marginBottom: 20,
-    fontSize: 12,
-    
-  },
-  forgotPassword: {
-    marginLeft: 100,
+    fontSize: 14,
   },
 
   button: {
@@ -127,7 +122,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
   },
 });
