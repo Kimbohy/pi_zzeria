@@ -1,4 +1,11 @@
-import { StyleSheet, View, Image, TouchableOpacity, Dimensions, useWindowDimensions } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+  useWindowDimensions,
+} from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { Text } from "react-native";
@@ -26,7 +33,12 @@ const PizzaCard: React.FC<{ pizza: PizzaProps }> = ({ pizza }) => {
   const [selectedSize, setSelectedSize] = useState(pizza.sizes[0]);
   const [quantity, setQuantity] = useState(1);
   return (
-    <View style={[styles.container, { width: containerWidth, height: containerHeight }]}>
+    <View
+      style={[
+        styles.container,
+        { width: containerWidth, height: containerHeight },
+      ]}
+    >
       <Image source={pizza.image} style={styles.image} />
       <View style={styles.detailsContainer}>
         <Text style={styles.pizzaName}>{pizza.name}</Text>
@@ -135,7 +147,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   picker: {
-    height: 40,
+    height: 50,
     paddingHorizontal: 10,
     borderWidth: 0,
     fontSize: 20,
